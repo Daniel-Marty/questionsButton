@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Question Generator</title>
+    <style>
+        /* CSS for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #000000, #333333);
+            /* Dark background gradient */
+        }
+
+        /* CSS for the button */
+        .button {
+            padding: 10px 20px;
+            background-color: #eee8aa;
+            /* Creamy color */
+            color: #000000;
+            font-size: 36px;
+            font-weight: bold;
+            /* Bold font weight */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* CSS for the question */
+        #question {
+            color: #eee8aa;
+            /* Creamy color */
+            font-size: 36px;
+            font-weight: bold;
+            /* Bold font weight */
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="button" onclick="generateRandomQuestion()">Generate Question</button>
+    <p id="question"></p>
+
+    <script>
+        // JavaScript code
+        var questions = [
+            "What is your favorite subject in school ?",
+            "What is your dream travel destination? (why?)",
+            "What is your all-time favorite movie?",
+            "If you could have any superpower, what would it be? (why)",
+            "If you could meet any historical figure, who would it be?",
+            "If you could only eat one meal for the rest of your life, what would it be?",
+            "What is your favorite season of the year? (why?)",
+            "What is your dream job?",
+            "If you could take 1 book to a deserted island, what would it be?",
+            "What is your favorite holiday? (why?)",
+            "Do you enjoy camping? If yes, why?",
+            "What is your favorite type of breakfast food?",
+            "What is your favorite type of snack?",
+            'What would you change about yourself if you could?',
+            'What motivates you to work hard?',
+            "What’s the most spontaneous thing you’ve done lately?",
+            'Would you rather vacation in Mexico or Alaska, and why?',
+            'If you could live anywhere, where would it be?',
+            'Who is your hero?',
+            'If you could choose to do anything for a day, what would it be?',
+            'Do you like or dislike surprises? Why or why not?',
+            'How many pillows do you sleep with?',
+            "What’s the longest you’ve gone without sleep (and why)?",
+            'What was the last movie you went to? What did you think?',
+            'If you could go back in time, what year would you travel to?',
+            'Which parent are you closer to and why?',
+            'What are your thoughts on online dating or tinder?',
+            'What was the worst phase in your life?',
+            'If a genie granted you 3 wishes right now, what would you wish for?',
+            'Would you ever take back someone who cheated?',
+            "What is a relationship deal breaker for you?",
+            "If you are in a bad mood, do you prefer to be left alone or have someone to cheer you up?",
+            "What is your idea of a perfect vacation?",
+            "What did your past relationship teach you?",
+            "What are your top five favorite movies?",
+            "What’s the best piece of advice someone has given you?",
+            "Do you prefer being warmed when you’re too cold or being cooled when you’re too hot?",
+            "Is flirting cheating?",
+            "If you were given $15,000 to give the most amount of happiness to the most amount of people, what would you do?",
+        ];
+
+        function generateRandomQuestion() {
+            if (questions.length === 0) {
+                // All questions have been asked
+                alert("No more questions available.");
+                return;
+            }
+
+            var randomNumber = Math.floor(Math.random() * questions.length); // Generate a random index
+            var question = questions[randomNumber]; // Get the randomly selected question
+            questions.splice(randomNumber, 1); // Remove the displayed question from the array
+            var questionElement = document.getElementById("question");
+            questionElement.textContent = question; // Display the randomly selected question
+        }
+
+        // Add event listener for the "keydown" event
+        document.addEventListener("keydown", function (event) {
+            if (event.code === "Space") {
+                generateRandomQuestion(); // Call the generateRandomQuestion() function on Space key press
+            }
+        });
+    </script>
+</body>
+
+</html>
